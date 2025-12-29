@@ -6,8 +6,9 @@ from routes import auth_routes
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY")
+app.secret_key = os.getenv("SECRET_KEY","dev-secret-key")
 
+app.secret_key = os.getenv("SECRET_KEY", "dev-secret-key")
 app.register_blueprint(auth_routes)
 
 @app.route("/")
