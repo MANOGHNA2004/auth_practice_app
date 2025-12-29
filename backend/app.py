@@ -15,5 +15,9 @@ app.register_blueprint(auth_routes)
 def home():
     return "Backend running successfully"
 
+@app.route("/health")
+def health_check():
+    return {"status" : "ok"}, 200
+
 if __name__ == "__main__":
     app.run(debug=True)
